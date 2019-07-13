@@ -14,7 +14,7 @@ module Lite
         [from, to].each { |key| assert_valid_keys!(key, *VALID_KEYS) }
 
         case to
-        when from then @amount
+        when from then amount
         when :celsius then send("celsius_from_#{from}")
         when :fahrenheit then send("fahrenheit_from_#{from}")
         when :kelvin then send("kelvin_from_#{from}")

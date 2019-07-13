@@ -17,7 +17,7 @@ module Lite
         [from, to].each { |key| assert_valid_keys!(key, *VALID_KEYS) }
 
         case to
-        when from then @amount
+        when from then amount
         when :celsius then send("celsius_from_#{from}")
         when :fahrenheit then send("fahrenheit_from_#{from}")
         when :kelvin then send("kelvin_from_#{from}")
@@ -27,15 +27,15 @@ module Lite
       private
 
       def celsius_from_fahrenheit
-        (@amount - F_FREEZING_POINT) * C_FREEZING_POINT
+        (amount - F_FREEZING_POINT) * C_FREEZING_POINT
       end
 
       def celsius_from_kelvin
-        @amount - K_FREEZING_POINT
+        amount - K_FREEZING_POINT
       end
 
       def fahrenheit_from_celsius
-        (@amount * C_INVERSED_POINT) + F_FREEZING_POINT
+        (amount * C_INVERSED_POINT) + F_FREEZING_POINT
       end
 
       def fahrenheit_from_kelvin
@@ -43,7 +43,7 @@ module Lite
       end
 
       def kelvin_from_celsius
-        @amount + K_FREEZING_POINT
+        amount + K_FREEZING_POINT
       end
 
       def kelvin_from_fahrenheit
