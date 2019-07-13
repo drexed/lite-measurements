@@ -9,7 +9,7 @@ Lite::Measurements is a library for converting measurements to different unit si
 
 Add this line to your application's Gemfile:
 
-```measurements
+```ruby
 gem 'lite-measurements'
 ```
 
