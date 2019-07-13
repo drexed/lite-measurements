@@ -1,14 +1,11 @@
 # frozen_string_literal: true
 
-%w[version configuration base].each do |filename|
+%w[version configuration base mass temperature].each do |filename|
   require "lite/measurements/#{filename}"
 end
 
-%w[mass temperature].each do |filename|
-  require "lite/measurements/#{filename}"
-  next unless Lite::Measurements.configuration.monkey_patches
-
-  require "lite/measurements/monkey_patches/#{filename}"
+if Lite::Measurements.configuration.monkey_patches
+  require "lite/measurements/monkey_patches"
 end
 
 require 'generators/lite/measurements/install_generator'
