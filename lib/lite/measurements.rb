@@ -1,4 +1,6 @@
-require "lite/measurements/version"
+# frozen_string_literal: true
+
+require 'lite/measurements/version'
 
 module Lite
   module Measurements
