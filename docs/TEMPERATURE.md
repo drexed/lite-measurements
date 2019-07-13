@@ -5,8 +5,8 @@ Option | Type | Default
 from, to | symbol | `:celsius`, `:fahrenheit`, `:kelvin`
 
 ```ruby
-temperature = Lite::Measurements::Temperature.new(2)
-temperature = temperature.convert(from: :fahrenheit, to: :celsius)      #=> -16.666666666666668
+klass = Lite::Measurements::Temperature.new(2)
+klass = klass.convert(from: :fahrenheit, to: :celsius)                  #=> -16.666666666666668
 
 # - or -
 
