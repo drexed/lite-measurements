@@ -32,7 +32,7 @@ Or install it yourself as:
 `rails g lite:measurements:install` will generate the following file:
 `../config/initalizers/lite-measurements.rb`
 
-```measurements
+```ruby
 Lite::Measurements.configure do |config|
   config.monkey_patch = %w[
     temperature
