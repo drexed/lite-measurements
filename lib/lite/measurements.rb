@@ -6,7 +6,7 @@ end
 
 %w[mass temperature].each do |filename|
   require "lite/measurements/#{filename}"
-  next unless Lite::Measurements.configuration.monkey_patch.include?(filename)
+  next unless Lite::Measurements.configuration.monkey_patches
 
   require "lite/measurements/monkey_patches/#{filename}"
 end

@@ -34,15 +34,13 @@ Or install it yourself as:
 
 ```ruby
 Lite::Measurements.configure do |config|
-  config.monkey_patch = %w[
-    mass temperature
-  ]
+  config.monkey_patches = true
 end
 ```
 
 ## Monkey-patches
 
-Including a measurements monkey patch will give you numeric access to conversions.
+Including a measurements monkey patches will give you numeric access to conversions.
 
 ```ruby
 2.convert_temperature(from: :fahrenheit, to: :celsius) #=> -16.666666666666668

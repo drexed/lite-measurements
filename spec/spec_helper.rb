@@ -5,9 +5,7 @@ require 'lite/measurements'
 require 'generator_spec'
 
 Lite::Measurements.configure do |config|
-  config.monkey_patch = %w[
-    mass temperature
-  ]
+  config.monkey_patches = true
 end
 
 spec_path = Pathname.new(File.expand_path('../spec', File.dirname(__FILE__)))

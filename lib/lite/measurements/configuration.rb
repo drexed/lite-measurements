@@ -5,12 +5,10 @@ module Lite
 
     class Configuration
 
-      attr_accessor :monkey_patch
+      attr_accessor :monkey_patches
 
       def initialize
-        @monkey_patch = %w[
-          mass temperature
-        ]
+        @monkey_patches = true
       end
 
     end

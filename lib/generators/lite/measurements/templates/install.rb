@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
 Lite::Measurements.configure do |config|
-  config.array = %w[
-    temperature
-  ]
+  config.monkey_patches = true
 end
