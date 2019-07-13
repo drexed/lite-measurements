@@ -6,7 +6,7 @@ RSpec.describe Lite::Measurements::Configuration do
   after do
     Lite::Measurements.configure do |config|
       config.monkey_patch = %w[
-        temperature
+        mass temperature
       ]
     end
   end

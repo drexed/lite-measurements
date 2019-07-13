@@ -4,7 +4,7 @@
   require "lite/measurements/#{filename}"
 end
 
-%w[temperature].each do |filename|
+%w[mass temperature].each do |filename|
   require "lite/measurements/#{filename}"
   next unless Lite::Measurements.configuration.monkey_patch.include?(filename)
 

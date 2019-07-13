@@ -9,7 +9,7 @@ module Lite
 
       def initialize
         @monkey_patch = %w[
-          temperature
+          mass temperature
         ]
       end
 

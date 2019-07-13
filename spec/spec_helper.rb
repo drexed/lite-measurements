@@ -6,7 +6,7 @@ require 'generator_spec'
 
 Lite::Measurements.configure do |config|
   config.monkey_patch = %w[
-    temperature
+    mass temperature
   ]
 end
 
