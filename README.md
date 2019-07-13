@@ -61,6 +61,10 @@ temperature = temperature.convert(from: :fahrenheit, to: :celsius)      #=> -16.
 # - or -
 
 Lite::Measurements::Temperature.convert(2, from: :celsius, to: :kelvin) #=> 275.15
+
+# - or -
+
+2.convert_temperature(from: :kelvin, to: :fahrenheit)                   #=> -456.07
 ```
 
 ## Development
