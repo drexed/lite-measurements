@@ -1,14 +1,15 @@
 # Lite::Measurements
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/lite/measurements`. To experiment with that code, run `bin/console` for an interactive prompt.
+[![Gem Version](https://badge.fury.io/rb/lite-measurements.svg)](http://badge.fury.io/rb/lite-measurements)
+[![Build Status](https://travis-ci.org/drexed/lite-measurements.svg?branch=master)](https://travis-ci.org/drexed/lite-measurements)
 
-TODO: Delete this and the text above, and describe your gem
+Lite::Measurements is a library for converting measurements to different unit sizes or types.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-```ruby
+```measurements
 gem 'lite-measurements'
 ```
 
@@ -20,9 +21,47 @@ Or install it yourself as:
 
     $ gem install lite-measurements
 
-## Usage
+## Table of Contents
 
-TODO: Write usage instructions here
+* [Configurations](#configurations)
+* [Monkey-patches](#monkey-patches)
+* [Temperature](#temperature)
+
+## Configurations
+
+`rails g lite:measurements:install` will generate the following file:
+`../config/initalizers/lite-measurements.rb`
+
+```measurements
+Lite::Measurements.configure do |config|
+  config.monkey_patch = %w[
+    temperature
+  ]
+end
+```
+
+## Monkey-patches
+
+Including a measurements monkey patch will give you numeric access to conversions.
+
+```ruby
+2.convert_temperature(from: :fahrenheit, to: :celsius) #=> -16.666666666666668
+```
+
+## Temperature
+
+Option | Type | Default
+--- | --- | ---
+from, to | symbol | `:celsius`, `:fahrenheit`, `:kelvin`
+
+```ruby
+temperature = Lite::Measurements::Temperature.new(2)
+temperature = temperature.convert(from: :fahrenheit, to: :celsius)      #=> -16.666666666666668
+
+# - or -
+
+Lite::Measurements::Temperature.convert(2, from: :celsius, to: :kelvin) #=> 275.15
+```
 
 ## Development
 

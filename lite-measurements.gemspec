@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.authors = ['Juan Gomez']
   spec.email = %w[j.gomez@drexed.com]
 
-  spec.summary = 'Convert unit measure measurements to different sizes or types'
+  spec.summary = 'Convert measurements to different unit sizes or types'
   spec.homepage = 'http://drexed.github.io/lite-measurements'
   spec.license = 'MIT'
 

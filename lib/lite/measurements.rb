@@ -1,10 +1,14 @@
 # frozen_string_literal: true
 
 require 'lite/measurements/version'
+require 'lite/measurements/configuration'
+require 'lite/measurements/base'
 
-module Lite
-  module Measurements
-    class Error < StandardError; end
-    # Your code goes here...
-  end
+%w[temperature].each do |filename|
+  require "lite/measurements/#{filename}"
+  next unless Lite::Measurements.configuration.monkey_patch.include?(filename)
+
+  require "lite/measurements/monkey_patches/#{filename}"
 end
+
+require 'generators/lite/measurements/install_generator'
