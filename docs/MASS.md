@@ -1,8 +1,13 @@
 # Mass
 
+Type | Keys
+--- | ---
+Imperical | `:ounces`, `:pounds`, `:stones`, `:us_tons`, `:imperial_tons`
+Metric | `:micrograms`, `:milligrams`, `:centigrams`, `:decigrams`, `:grams`, `:dekagrams`, `:hectograms`, `:kilograms`, `:metric_tons`
+
 Option | Type | Default
 --- | --- | ---
-from, to | symbol | `:centigrams`, `:decigrams`, `:dekagrams`, `:grams`, `:hectograms`, `:imperial_tons`, `:kilograms`, `:metric_tons`, `:micrograms`, `:milligrams`, `:ounces`, `:pounds`, `:stones`, `:us_tons`
+from, to | symbol | ---
 
 ```ruby
 klass = Lite::Measurements::Mass.new(2)

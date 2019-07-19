@@ -22,11 +22,11 @@ RSpec.describe Lite::Measurements::Mass do
         expect(klass.convert(from: :grams, to: :grams)).to eq(units)
       end
 
-      it 'to be 2_000 from metric_tons to kilograms' do
+      it 'to be 2000 from metric_tons to kilograms' do
         expect(klass.convert(from: :metric_tons, to: :kilograms)).to eq(2_000)
       end
 
-      it 'to be 0.002 from metric_tons to kilograms' do
+      it 'to be 0.002 from micrograms to kilograms' do
         expect(klass.convert(from: :micrograms, to: :milligrams)).to eq(0.002)
       end
     end

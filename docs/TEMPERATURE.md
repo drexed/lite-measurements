@@ -1,8 +1,13 @@
 # Temperature
 
+Type | Keys
+--- | ---
+Imperical | `:fahrenheit`
+Metric | `:celsius`, `:kelvin`
+
 Option | Type | Default
 --- | --- | ---
-from, to | symbol | `:celsius`, `:fahrenheit`, `:kelvin`
+from, to | symbol | ---
 
 ```ruby
 klass = Lite::Measurements::Temperature.new(2)

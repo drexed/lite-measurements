@@ -1,8 +1,13 @@
 # Length
 
+Type | Keys
+--- | ---
+Imperical | `:inches`, `:feet`, `:yards`, `:miles`, `:nautical_miles`
+Metric | `:micrometers`, `:millimeters`, `:centimeters`, `:decimeters`, `:meters`, `:dekameters`, `:hectometers`, `:kilometers`
+
 Option | Type | Default
 --- | --- | ---
-from, to | symbol | `:centigrams`, `:decigrams`, `:dekagrams`, `:grams`, `:hectograms`, `:imperial_tons`, `:kilograms`, `:metric_tons`, `:micrograms`, `:milligrams`, `:ounces`, `:pounds`, `:stones`, `:us_tons`
+from, to | symbol | ---
 
 ```ruby
 klass = Lite::Measurements::Length.new(2)
