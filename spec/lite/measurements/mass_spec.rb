@@ -32,29 +32,29 @@ RSpec.describe Lite::Measurements::Mass do
     end
 
     context 'when converting from imperial to metric' do
-      it 'to be 56.699_046 from ounces to grams' do
-        expect(klass.convert(from: :ounces, to: :grams)).to eq(56.699_046)
+      it 'to be 56.69904625 from ounces to grams' do
+        expect(klass.convert(from: :ounces, to: :grams)).to eq(56.69904625)
       end
 
-      it 'to be 907_184.736 from pounds to milligrams' do
-        expect(klass.convert(from: :pounds, to: :milligrams)).to eq(907_184.736)
+      it 'to be 907184.74 from pounds to milligrams' do
+        expect(klass.convert(from: :pounds, to: :milligrams)).to eq(907_184.74)
       end
     end
 
     context 'when converting from metric to imperial' do
-      it 'to be 0.070_547_924_210_223_92 from grams to ounces' do
-        expect(klass.convert(from: :grams, to: :ounces)).to eq(0.070_547_924_210_223_92)
+      it 'to be 0.07054792389916083 from grams to ounces' do
+        expect(klass.convert(from: :grams, to: :ounces)).to eq(0.07054792389916083)
       end
 
-      it 'to be 0.314_946_090_224_213_94 from kilograms to stones' do
-        expect(klass.convert(from: :kilograms, to: :stones)).to eq(0.314_946_090_224_213_94)
+      it 'to be 0.3149460888355394 from kilograms to stones' do
+        expect(klass.convert(from: :kilograms, to: :stones)).to eq(0.3149460888355394)
       end
     end
   end
 
   describe '#monkey_patch' do
-    it 'to be 56.699_046' do
-      expect(2.convert_mass(from: :ounces, to: :grams)).to eq(56.699_046)
+    it 'to be 56.69904625' do
+      expect(2.convert_mass(from: :ounces, to: :grams)).to eq(56.69904625)
     end
   end
 

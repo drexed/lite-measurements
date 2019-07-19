@@ -4,7 +4,7 @@ module Lite
   module Measurements
     class Mass < Lite::Measurements::Base
 
-      CONVERTER ||= 28.349_523
+      CONVERTER ||= 28.349523125
 
       IMPERICAL ||= {
         ounces: 1.0, pounds: 16.0, stones: 224.0, us_tons: 32_000.0, imperial_tons: 35_840.0
