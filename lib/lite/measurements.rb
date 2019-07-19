@@ -8,7 +8,7 @@ require 'lite/measurements/helpers/conversion_helper'
   require "lite/measurements/helpers/#{filename}_helper"
 end
 
-%w[base length mass temperature time].each do |filename|
+%w[base digital_storage length mass temperature time].each do |filename|
   require "lite/measurements/#{filename}"
 end
 

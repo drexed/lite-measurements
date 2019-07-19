@@ -2,8 +2,7 @@
 
 Type | Keys
 --- | ---
-Imperical | `:fahrenheit`
-Metric | `:celsius`, `:kelvin`
+Units | `:celsius`, `:fahrenheit`, `:kelvin`
 
 Option | Type | Default
 --- | --- | ---

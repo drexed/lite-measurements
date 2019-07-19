@@ -2,7 +2,7 @@
 
 Type | Keys
 --- | ---
-Metric | `:milliseconds`, `:seconds`, `:minutes`, `:hours`, `:days`, `:weeks`, `:years`, `:decades`, `:centuries`, `:millenniums`
+Units | `:milliseconds`, `:seconds`, `:minutes`, `:hours`, `:days`, `:weeks`, `:years`, `:decades`, `:centuries`, `:millenniums`
 
 Option | Type | Default
 --- | --- | ---

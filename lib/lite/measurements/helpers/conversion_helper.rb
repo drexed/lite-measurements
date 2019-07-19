@@ -11,15 +11,17 @@ module Lite
           [imperical_keys, metric_keys].flatten
         end
 
+        # rubocop:disable Metrics/LineLength
         def convert_to_imperical_units(units, from: nil, convert_to:, convert_from:, to: nil)
-          units = shift_units(units, type: klass::METRIC, from: from, to: convert_to)
-          shift_units(units / klass::CONVERTER, type: klass::IMPERICAL, from: convert_from, to: to)
+          units = shift_units(units, type: klass::METRIC_UNITS, from: from, to: convert_to)
+          shift_units(units / klass::CONVERTER, type: klass::IMPERICAL_UNITS, from: convert_from, to: to)
         end
 
         def convert_to_metric_units(units, from: nil, convert_to:, convert_from:, to: nil)
-          units = shift_units(units, type: klass::IMPERICAL, from: from, to: convert_to)
-          shift_units(units * klass::CONVERTER, type: klass::METRIC, from: convert_from, to: to)
+          units = shift_units(units, type: klass::IMPERICAL_UNITS, from: from, to: convert_to)
+          shift_units(units * klass::CONVERTER, type: klass::METRIC_UNITS, from: convert_from, to: to)
         end
+        # rubocop:enable Metrics/LineLength
 
         def convert_to_imperical_units?(from, to)
           metric_keys.include?(from) && imperical_keys.include?(to)
@@ -34,11 +36,11 @@ module Lite
         end
 
         def imperical_keys
-          @imperical_keys ||= klass::IMPERICAL.keys
+          @imperical_keys ||= klass::IMPERICAL_UNITS.keys
         end
 
         def metric_keys
-          @metric_keys ||= klass::METRIC.keys
+          @metric_keys ||= klass::METRIC_UNITS.keys
         end
 
         def shift_between_imperical_units?(from, to)

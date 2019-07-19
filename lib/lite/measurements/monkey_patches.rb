@@ -3,6 +3,7 @@
 class Numeric
 
   {
+    digital_storage: Lite::Measurements::DigitalStorage,
     length: Lite::Measurements::Length,
     mass: Lite::Measurements::Mass,
     temperature: Lite::Measurements::Temperature,
