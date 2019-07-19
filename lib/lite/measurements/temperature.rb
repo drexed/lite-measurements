@@ -14,7 +14,7 @@ module Lite
       ].freeze
 
       def convert(from:, to:)
-        [from, to].each { |key| assert_valid_keys!(key, *VALID_KEYS) }
+        assert_all_valid_keys!(from, to, VALID_KEYS)
 
         case to
         when from then amount

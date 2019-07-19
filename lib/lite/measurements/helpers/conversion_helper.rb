@@ -7,17 +7,8 @@ module Lite
 
         private
 
-        def assert_all_valid_keys!(from, to)
-          valid_keys = [imperical_keys, metric_keys].flatten
-          [from, to].each { |key| assert_valid_keys!(key, *valid_keys) }
-        end
-
-        def change_units(units, type:, from: nil, to: nil)
-          if from
-            units * type[from]
-          else
-            units / type[to]
-          end
+        def all_keys
+          [imperical_keys, metric_keys].flatten
         end
 
         def convert_to_imperical_units(units, from: nil, convert_to:, convert_from:, to: nil)
@@ -38,10 +29,6 @@ module Lite
           imperical_keys.include?(from) && metric_keys.include?(to)
         end
 
-        def equal_units?(from, to)
-          from == to
-        end
-
         def klass
           self.class
         end
@@ -52,11 +39,6 @@ module Lite
 
         def metric_keys
           @metric_keys ||= klass::METRIC.keys
-        end
-
-        def shift_units(units, type:, from: nil, to: nil)
-          units = change_units(units, type: type, from: from)
-          change_units(units, type: type, to: to)
         end
 
         def shift_between_imperical_units?(from, to)

@@ -5,6 +5,7 @@ module Lite
     class Length < Lite::Measurements::Base
 
       include Lite::Measurements::Helpers::ConversionHelper
+      include Lite::Measurements::Helpers::ShiftHelper
 
       CONVERTER ||= 0.0254
 
@@ -16,9 +17,9 @@ module Lite
         dekameters: 10.0, hectometers: 100.0, kilometers: 1_000.0
       }.freeze
 
-      # rubocop:disable Metrics/MethodLength, Metrics/LineLength
+      # rubocop:disable Metrics/AbcSize, Metrics/MethodLength, Metrics/LineLength
       def convert(from:, to:)
-        assert_all_valid_keys!(from, to)
+        assert_all_valid_keys!(from, to, all_keys)
 
         if equal_units?(from, to)
           amount
@@ -32,7 +33,7 @@ module Lite
           convert_to_imperical_units(amount, from: from, convert_to: :meters, convert_from: :inches, to: to)
         end
       end
-      # rubocop:enable Metrics/MethodLength, Metrics/LineLength
+      # rubocop:enable Metrics/AbcSize, Metrics/MethodLength, Metrics/LineLength
 
     end
   end

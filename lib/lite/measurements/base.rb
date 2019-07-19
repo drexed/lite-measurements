@@ -21,8 +21,12 @@ module Lite
 
       private
 
+      def assert_all_valid_keys!(from, to, valid_keys)
+        [from, to].each { |key| assert_valid_keys!(key, valid_keys) }
+      end
+
       # rubocop:disable Style/GuardClause
-      def assert_valid_keys!(key, *valid_keys)
+      def assert_valid_keys!(key, valid_keys)
         if valid_keys.empty?
           raise ArgumentError, 'Missing key: conversion key must be provided'
         elsif !valid_keys.include?(key)
