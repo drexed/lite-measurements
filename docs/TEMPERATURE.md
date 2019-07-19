@@ -6,13 +6,13 @@ from, to | symbol | `:celsius`, `:fahrenheit`, `:kelvin`
 
 ```ruby
 klass = Lite::Measurements::Temperature.new(2)
-klass = klass.convert(from: :fahrenheit, to: :celsius)                  #=> -16.666666666666668
+klass = klass.convert(from: :fahrenheit, to: :celsius)
 
 # - or -
 
-Lite::Measurements::Temperature.convert(2, from: :celsius, to: :kelvin) #=> 275.15
+Lite::Measurements::Temperature.convert(2, from: :celsius, to: :kelvin)
 
 # - or -
 
-2.convert_temperature(from: :kelvin, to: :fahrenheit)                   #=> -456.07
+2.convert_temperature(from: :kelvin, to: :fahrenheit)
 ```

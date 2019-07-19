@@ -2,12 +2,13 @@
 
 class Numeric
 
-  def convert_mass(from:, to:)
-    Lite::Measurements::Mass.convert(self, from: from, to: to)
-  end
-
-  def convert_temperature(from:, to:)
-    Lite::Measurements::Temperature.convert(self, from: from, to: to)
+  {
+    mass: Lite::Measurements::Mass,
+    temperature: Lite::Measurements::Temperature
+  }.each do |name, klass|
+    define_method("convert_#{name}") do |from:, to:|
+      klass.convert(self, from: from, to: to)
+    end
   end
 
 end

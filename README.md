@@ -25,7 +25,7 @@ Or install it yourself as:
 
 * [Configurations](#configurations)
 * [Measurements](#measurements)
-* [Monkey-patches](#monkey-patches)
+* [Monkey patches](#monkey-patches)
 
 ## Configurations
 
@@ -40,9 +40,10 @@ end
 
 ## Measurements
 
+* [Mass](https://github.com/drexed/lite-ruby/blob/master/docs/MASS.md)
 * [Temperature](https://github.com/drexed/lite-ruby/blob/master/docs/TEMPERATURE.md)
 
-## Monkey-patches
+## Monkey patches
 
 Including monkey patches will give you `Numeric` access to conversions.
 

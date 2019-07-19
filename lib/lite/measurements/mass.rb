@@ -4,50 +4,56 @@ module Lite
   module Measurements
     class Mass < Lite::Measurements::Base
 
-      CONVERTER ||= 28.35
+      CONVERTER ||= 28.349_523
 
-      VALID_KEYS ||= %i[
-        celsius fahrenheit kelvin
-      ].freeze
+      IMPERICAL ||= {
+        ounces: 1.0, pounds: 16.0, stones: 224.0, us_tons: 32_000.0, imperial_tons: 35_840.0
+      }.freeze
+      METRIC ||= {
+        micrograms: 0.000_001, milligrams: 0.001, centigrams: 0.01, decigrams: 0.1, grams: 1.0,
+        dekagrams: 10.0, hectograms: 100.0, kilograms: 1_000.0, metric_tons: 1_000_000.0
+      }.freeze
 
+      # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength
+      # rubocop:disable Metrics/PerceivedComplexity
       def convert(from:, to:)
-        [from, to].each { |key| assert_valid_keys!(key, *VALID_KEYS) }
+        ikeys = IMPERICAL.keys
+        mkeys = METRIC.keys
 
-        case to
-        when from then amount
-        when :celsius then send("celsius_from_#{from}")
-        when :fahrenheit then send("fahrenheit_from_#{from}")
-        when :kelvin then send("kelvin_from_#{from}")
+        valid_keys = [ikeys, mkeys].flatten
+        [from, to].each { |key| assert_valid_keys!(key, *valid_keys) }
+
+        if from == to
+          amount
+        elsif ikeys.include?(from) && ikeys.include?(to)
+          convert_same_types(amount, type: IMPERICAL, from: from, to: to)
+        elsif mkeys.include?(from) && mkeys.include?(to)
+          convert_same_types(amount, type: METRIC, from: from, to: to)
+        elsif ikeys.include?(from) && mkeys.include?(to)
+          ounces = convert_same_types(amount, type: IMPERICAL, from: from, to: :ounces)
+          convert_same_types(ounces * CONVERTER, type: METRIC, from: :grams, to: to)
+        else
+          grams = convert_same_types(amount, type: METRIC, from: from, to: :grams)
+          convert_same_types(grams / CONVERTER, type: IMPERICAL, from: :ounces, to: to)
         end
       end
+      # rubocop:enable Metrics/PerceivedComplexity
+      # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength
 
       private
 
-      # def to_mass(from, to)
-      #   assert_inclusion_of_valid_keys!(MASS_KEYS.values.flatten, from, to)
-      #
-      #   return self if from == to
-      #
-      #   metric_keys = MASS_KEYS.fetch(:metric)
-      #   metrics_included_from = metric_keys.include?(from)
-      #
-      #   case to
-      #   when :gram, :grams, :milligram, :milligrams, :centigram, :centigrams, :decigram, :decigrams,
-      #        :decagram, :decagrams, :hectogram, :hectograms, :kilogram, :kilograms, :metric_ton,
-      #        :metric_tons
-      #     if metrics_included_from
-      #       to_f * 1.send("#{from}_in_grams").to_f / 1.send("#{to}_in_grams").to_f
-      #     else
-      #       to_f * ((1.send("#{from}_in_ounces") * 28.3495).to_f / 1.send("#{to}_in_grams").to_f)
-      #     end
-      #   when :ounce, :ounces, :pound, :pounds, :stone, :stones, :ton, :tons
-      #     if metrics_included_from
-      #       to_f * ((1.send("#{from}_in_grams") * 0.035274).to_f / 1.send("#{to}_in_ounces").to_f)
-      #     else
-      #       to_f * 1.send("#{from}_in_ounces").to_f / 1.send("#{to}_in_ounces").to_f
-      #     end
-      #   end
-      # end
+      def convert_same_types(amt, type:, from: nil, to: nil)
+        amt = normalize_same_types(amt, type: type, from: from)
+        normalize_same_types(amt, type: type, to: to)
+      end
+
+      def normalize_same_types(amt, type:, from: nil, to: nil)
+        if from
+          amt * type[from]
+        else
+          amt / type[to]
+        end
+      end
 
     end
   end

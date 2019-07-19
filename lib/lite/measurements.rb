@@ -4,6 +4,6 @@
   require "lite/measurements/#{filename}"
 end
 
-require "lite/measurements/monkey_patches" if Lite::Measurements.configuration.monkey_patches
+require 'lite/measurements/monkey_patches' if Lite::Measurements.configuration.monkey_patches
 
 require 'generators/lite/measurements/install_generator'
