@@ -3,13 +3,13 @@
 require 'spec_helper'
 
 RSpec.describe Lite::Measurements::Temperature do
-  let(:temperature) { 2 }
-  let(:klass) { described_class.new(temperature) }
+  let(:units) { 2 }
+  let(:klass) { described_class.new(units) }
 
   describe '#convert' do
     context 'when converting from celcius' do
       it 'to be 2 for celcius' do
-        expect(klass.convert(from: :celsius, to: :celsius)).to eq(temperature)
+        expect(klass.convert(from: :celsius, to: :celsius)).to eq(units)
       end
 
       it 'to be 35.6 for fahrenheit' do
@@ -23,7 +23,7 @@ RSpec.describe Lite::Measurements::Temperature do
 
     context 'when converting from fahrenheit' do
       it 'to be 2 for fahrenheit' do
-        expect(klass.convert(from: :fahrenheit, to: :fahrenheit)).to eq(temperature)
+        expect(klass.convert(from: :fahrenheit, to: :fahrenheit)).to eq(units)
       end
 
       it 'to be -16.666666666666668 for celcius' do
@@ -37,7 +37,7 @@ RSpec.describe Lite::Measurements::Temperature do
 
     context 'when converting from kelvin' do
       it 'to be 2 for kelvin' do
-        expect(klass.convert(from: :kelvin, to: :kelvin)).to eq(temperature)
+        expect(klass.convert(from: :kelvin, to: :kelvin)).to eq(units)
       end
 
       it 'to be -271.15 for celcius' do

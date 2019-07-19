@@ -3,6 +3,7 @@
 class Numeric
 
   {
+    length: Lite::Measurements::Length,
     mass: Lite::Measurements::Mass,
     temperature: Lite::Measurements::Temperature
   }.each do |name, klass|

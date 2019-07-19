@@ -3,13 +3,13 @@
 require 'spec_helper'
 
 RSpec.describe Lite::Measurements::Mass do
-  let(:mass) { 2 }
-  let(:klass) { described_class.new(mass) }
+  let(:units) { 2 }
+  let(:klass) { described_class.new(units) }
 
   describe '#convert' do
     context 'when converting between imperial' do
       it 'to be 2 from ounces to ounces' do
-        expect(klass.convert(from: :ounces, to: :ounces)).to eq(mass)
+        expect(klass.convert(from: :ounces, to: :ounces)).to eq(units)
       end
 
       it 'to be 0.014 from stones to us_tons' do
@@ -19,7 +19,7 @@ RSpec.describe Lite::Measurements::Mass do
 
     context 'when converting between metric' do
       it 'to be 2 from grams to grams' do
-        expect(klass.convert(from: :grams, to: :grams)).to eq(mass)
+        expect(klass.convert(from: :grams, to: :grams)).to eq(units)
       end
 
       it 'to be 2_000 from metric_tons to kilograms' do

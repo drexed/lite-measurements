@@ -16,31 +16,23 @@ module Lite
         dekagrams: 10.0, hectograms: 100.0, kilograms: 1_000.0, metric_tons: 1_000_000.0
       }.freeze
 
-      # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength
-      # rubocop:disable Metrics/PerceivedComplexity
+      # rubocop:disable Metrics/MethodLength, Metrics/LineLength
       def convert(from:, to:)
-        ikeys = IMPERICAL.keys
-        mkeys = METRIC.keys
+        assert_all_valid_keys!(from, to)
 
-        valid_keys = [ikeys, mkeys].flatten
-        [from, to].each { |key| assert_valid_keys!(key, *valid_keys) }
-
-        if from == to
+        if equal_units?(from, to)
           amount
-        elsif ikeys.include?(from) && ikeys.include?(to)
-          convert_same_types(amount, type: IMPERICAL, from: from, to: to)
-        elsif mkeys.include?(from) && mkeys.include?(to)
-          convert_same_types(amount, type: METRIC, from: from, to: to)
-        elsif ikeys.include?(from) && mkeys.include?(to)
-          ounces = convert_same_types(amount, type: IMPERICAL, from: from, to: :ounces)
-          convert_same_types(ounces * CONVERTER, type: METRIC, from: :grams, to: to)
+        elsif shift_between_imperical_units?(from, to)
+          shift_units(amount, type: IMPERICAL, from: from, to: to)
+        elsif shift_between_metric_units?(from, to)
+          shift_units(amount, type: METRIC, from: from, to: to)
+        elsif convert_to_metric_units?(from, to)
+          convert_to_metric_units(amount, from: from, convert_to: :ounces, convert_from: :grams, to: to)
         else
-          grams = convert_same_types(amount, type: METRIC, from: from, to: :grams)
-          convert_same_types(grams / CONVERTER, type: IMPERICAL, from: :ounces, to: to)
+          convert_to_imperical_units(amount, from: from, convert_to: :grams, convert_from: :ounces, to: to)
         end
       end
-      # rubocop:enable Metrics/PerceivedComplexity
-      # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength
+      # rubocop:enable Metrics/MethodLength, Metrics/LineLength
 
     end
   end

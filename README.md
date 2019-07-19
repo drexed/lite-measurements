@@ -40,6 +40,7 @@ end
 
 ## Measurements
 
+* [Length](https://github.com/drexed/lite-ruby/blob/master/docs/LENGTH.md)
 * [Mass](https://github.com/drexed/lite-ruby/blob/master/docs/MASS.md)
 * [Temperature](https://github.com/drexed/lite-ruby/blob/master/docs/TEMPERATURE.md)
 

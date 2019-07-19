@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require "lite/measurements/version"
-require "lite/measurements/configuration"
-require "lite/measurements/helpers/conversion_helper"
+require 'lite/measurements/version'
+require 'lite/measurements/configuration'
+require 'lite/measurements/helpers/conversion_helper'
 
-%w[base mass temperature].each do |filename|
+%w[base length mass temperature].each do |filename|
   require "lite/measurements/#{filename}"
 end
 
