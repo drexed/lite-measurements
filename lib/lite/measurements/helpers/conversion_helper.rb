@@ -11,7 +11,7 @@ module Lite
           [imperical_keys, metric_keys].flatten
         end
 
-        # rubocop:disable Metrics/LineLength
+        # rubocop:disable Layout/LineLength
         def convert_to_imperical_units(units, from: nil, convert_to:, convert_from:, to: nil)
           units = shift_units(units, type: klass::METRIC_UNITS, from: from, to: convert_to)
           shift_units(units / klass::CONVERTER, type: klass::IMPERICAL_UNITS, from: convert_from, to: to)
@@ -21,7 +21,7 @@ module Lite
           units = shift_units(units, type: klass::IMPERICAL_UNITS, from: from, to: convert_to)
           shift_units(units * klass::CONVERTER, type: klass::METRIC_UNITS, from: convert_from, to: to)
         end
-        # rubocop:enable Metrics/LineLength
+        # rubocop:enable Layout/LineLength
 
         def convert_to_imperical_units?(from, to)
           metric_keys.include?(from) && imperical_keys.include?(to)

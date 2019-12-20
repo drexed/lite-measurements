@@ -17,7 +17,7 @@ module Lite
         dekagrams: 10.0, hectograms: 100.0, kilograms: 1_000.0, metric_tons: 1_000_000.0
       }.freeze
 
-      # rubocop:disable Metrics/AbcSize, Metrics/MethodLength, Metrics/LineLength
+      # rubocop:disable Metrics/AbcSize, Metrics/MethodLength, Layout/LineLength
       def convert(from:, to:)
         assert_all_valid_keys!(from, to, all_keys)
 
@@ -33,7 +33,7 @@ module Lite
           convert_to_imperical_units(amount, from: from, convert_to: :grams, convert_from: :ounces, to: to)
         end
       end
-      # rubocop:enable Metrics/AbcSize, Metrics/MethodLength, Metrics/LineLength
+      # rubocop:enable Metrics/AbcSize, Metrics/MethodLength, Layout/LineLength
 
     end
   end
