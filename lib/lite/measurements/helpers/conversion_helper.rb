@@ -12,12 +12,12 @@ module Lite
         end
 
         # rubocop:disable Layout/LineLength
-        def convert_to_imperical_units(units, from: nil, convert_to:, convert_from:, to: nil)
+        def convert_to_imperical_units(units, convert_to:, convert_from:, from: nil, to: nil)
           units = shift_units(units, type: klass::METRIC_UNITS, from: from, to: convert_to)
           shift_units(units / klass::CONVERTER, type: klass::IMPERICAL_UNITS, from: convert_from, to: to)
         end
 
-        def convert_to_metric_units(units, from: nil, convert_to:, convert_from:, to: nil)
+        def convert_to_metric_units(units, convert_to:, convert_from:, from: nil, to: nil)
           units = shift_units(units, type: klass::IMPERICAL_UNITS, from: from, to: convert_to)
           shift_units(units * klass::CONVERTER, type: klass::METRIC_UNITS, from: convert_from, to: to)
         end
