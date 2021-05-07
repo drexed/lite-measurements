@@ -4,12 +4,12 @@ module Lite
   module Measurements
     class Temperature < Lite::Measurements::Base
 
-      C_FREEZING_POINT ||= 5.0 / 9.0
-      C_INVERSED_POINT ||= 9.0 / 5.0
-      F_FREEZING_POINT ||= 32.0
-      K_FREEZING_POINT ||= 273.15
+      C_FREEZING_POINT = 5.0 / 9.0
+      C_INVERSED_POINT = 9.0 / 5.0
+      F_FREEZING_POINT = 32.0
+      K_FREEZING_POINT = 273.15
 
-      VALID_KEYS ||= %i[
+      VALID_KEYS = %i[
         celsius fahrenheit kelvin
       ].freeze
 

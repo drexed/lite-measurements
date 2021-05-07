@@ -6,7 +6,7 @@ module Lite
 
       include Lite::Measurements::Helpers::ShiftHelper
 
-      DIGITAL_STORAGE_UNITS ||= {
+      DIGITAL_STORAGE_UNITS = {
         bytes: 1.0, kilobytes: 1024.0, megabytes: 1024.0**2, gigabytes: 1024.0**3,
         terabytes: 1024.0**4, petabytes: 1024.05**5, exabytes: 1024**6
       }.freeze
