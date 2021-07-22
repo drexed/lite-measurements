@@ -10,11 +10,22 @@ module Lite
       CONVERTER = 28.349523125
 
       IMPERICAL_UNITS = {
-        ounces: 1.0, pounds: 16.0, stones: 224.0, us_tons: 32_000.0, imperial_tons: 35_840.0
+        ounces: 1.0,
+        pounds: 16.0,
+        stones: 224.0,
+        us_tons: 32_000.0,
+        imperial_tons: 35_840.0
       }.freeze
       METRIC_UNITS = {
-        micrograms: 0.000001, milligrams: 0.001, centigrams: 0.01, decigrams: 0.1, grams: 1.0,
-        dekagrams: 10.0, hectograms: 100.0, kilograms: 1_000.0, metric_tons: 1_000_000.0
+        micrograms: 0.000001,
+        milligrams: 0.001,
+        centigrams: 0.01,
+        decigrams: 0.1,
+        grams: 1.0,
+        dekagrams: 10.0,
+        hectograms: 100.0,
+        kilograms: 1_000.0,
+        metric_tons: 1_000_000.0
       }.freeze
 
       # rubocop:disable Metrics/MethodLength, Layout/LineLength

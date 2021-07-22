@@ -1,5 +1,11 @@
 # frozen_string_literal: true
 
-Lite::Measurements.configure do |config|
-  config.monkey_patches = true
-end
+require 'lite/measurements/monkey_patches'
+
+# - or-
+
+# require 'lite/measurements/monkey_patches/digital_storage'
+# require 'lite/measurements/monkey_patches/length'
+# require 'lite/measurements/monkey_patches/mass'
+# require 'lite/measurements/monkey_patches/temperature'
+# require 'lite/measurements/monkey_patches/time'

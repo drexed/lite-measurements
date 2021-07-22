@@ -10,11 +10,21 @@ module Lite
       CONVERTER = 0.0254
 
       IMPERICAL_UNITS = {
-        inches: 1.0, feet: 12.0, yards: 36.0, miles: 63_360.0, nautical_miles: 72_913.386
+        inches: 1.0,
+        feet: 12.0,
+        yards: 36.0,
+        miles: 63_360.0,
+        nautical_miles: 72_913.386
       }.freeze
       METRIC_UNITS = {
-        micrometers: 0.000001, millimeters: 0.001, centimeters: 0.01, decimeters: 0.1, meters: 1.0,
-        dekameters: 10.0, hectometers: 100.0, kilometers: 1_000.0
+        micrometers: 0.000001,
+        millimeters: 0.001,
+        centimeters: 0.01,
+        decimeters: 0.1,
+        meters: 1.0,
+        dekameters: 10.0,
+        hectometers: 100.0,
+        kilometers: 1_000.0
       }.freeze
 
       # rubocop:disable Metrics/MethodLength, Layout/LineLength

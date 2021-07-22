@@ -2,10 +2,10 @@
 
 require 'bundler/setup'
 require 'rails/generators'
-require 'lite/measurements'
 require 'generator_spec'
 
-Lite::Measurements.reset_configuration!
+require 'lite/measurements'
+require 'lite/measurements/monkey_patches'
 
 spec_path = Pathname.new(File.expand_path('../spec', File.dirname(__FILE__)))
 

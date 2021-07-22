@@ -29,13 +29,27 @@ Or install it yourself as:
 
 ## Configurations
 
+Any and all monkey patches must be explicitly included anywhere you want to use it.
+
+To globally use the monkey patches, just create an initializer requiring them.
+
 `rails g lite:measurements:install` will generate the following file:
-`../config/initalizers/lite-measurements.rb`
+`../config/initalizers/lite_measurements.rb`
+
+They can be disabled by commenting any of them out.
 
 ```ruby
-Lite::Measurements.configure do |config|
-  config.monkey_patches = true
-end
+# frozen_string_literal: true
+
+require 'lite/measurements/monkey_patches'
+
+# - or-
+
+# require 'lite/measurements/monkey_patches/digital_storage'
+# require 'lite/measurements/monkey_patches/length'
+# require 'lite/measurements/monkey_patches/mass'
+# require 'lite/measurements/monkey_patches/temperature'
+# require 'lite/measurements/monkey_patches/time'
 ```
 
 ## Measurements

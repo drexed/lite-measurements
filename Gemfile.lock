@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    lite-measurements (1.1.1)
+    lite-measurements (2.0.0)
 
 GEM
   remote: https://rubygems.org/

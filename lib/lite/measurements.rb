@@ -3,12 +3,11 @@
 require 'generators/lite/measurements/install_generator' if defined?(Rails::Generators)
 
 require 'lite/measurements/version'
-require 'lite/measurements/configuration'
-
-%w[conversion shift].each do |filename|
-  require "lite/measurements/helpers/#{filename}_helper"
-end
-
-%w[base digital_storage length mass temperature time monkey_patches].each do |filename|
-  require "lite/measurements/#{filename}"
-end
+require 'lite/measurements/helpers/conversion_helper'
+require 'lite/measurements/helpers/shift_helper'
+require 'lite/measurements/base'
+require 'lite/measurements/digital_storage'
+require 'lite/measurements/length'
+require 'lite/measurements/mass'
+require 'lite/measurements/temperature'
+require 'lite/measurements/time'
