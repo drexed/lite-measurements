@@ -2,6 +2,6 @@
 
 RSpec.describe Lite::Measurements do
   it 'to be a version number' do
-    expect(Lite::Measurements::VERSION).not_to be nil
+    expect(Lite::Measurements::VERSION).not_to be_nil
   end
 end

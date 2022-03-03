@@ -39,7 +39,7 @@ module Lite
       end
 
       def fahrenheit_from_kelvin
-        celsius_from_kelvin * C_INVERSED_POINT + F_FREEZING_POINT
+        (celsius_from_kelvin * C_INVERSED_POINT) + F_FREEZING_POINT
       end
 
       def kelvin_from_celsius
